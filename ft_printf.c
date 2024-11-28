@@ -21,7 +21,7 @@ static	int	format(va_list args, char a)
 	if (a == 'p')
 		return (print_ptr((unsigned long)va_arg(args, void *)));
 	if (a == 'd' || a == 'i')
-		return (print_int(va_arg(args, long)));
+		return (print_int((long)va_arg(args, int)));
 	if (a == 'u')
 		return (print_uns(va_arg(args, unsigned int)));
 	if (a == 'x' || a == 'X')

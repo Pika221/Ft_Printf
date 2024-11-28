@@ -23,7 +23,7 @@ int	print_int(long nbr)
 		count += write (1, "-", 1);
 		count += print_int(nbr);
 	}
-	if (nbr > 9)
+	else if (nbr > 9)
 	{
 		count += print_int(nbr / 10);
 		count += print_int(nbr % 10);

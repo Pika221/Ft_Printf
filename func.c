@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   func.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <hialpagu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: emuzun <emuzun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:35:22 by hialpagu          #+#    #+#             */
-/*   Updated: 2024/11/26 00:44:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/28 19:20:25 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,23 @@ int	print_str(char *str)
 int	print_ptr(unsigned long p)
 {
 	int	count;
-
+	char *hex;
+	char value[16];
+	int i;
+	
+	i =	0;
+	hex = "0123456789abcdef";
 	count = 0;
 	if (p == 0)
 		return (print_str("(nil)"));
 	count += write (1, "0x", 2);
-	count += print_hex(p, 'x');
+	while (p > 0)	
+	{	
+		value[i] = hex[p % 16];
+		p /= 16;
+		i++;
+	}
+	while (i-- > 0)
+		count += print_chr(value[i]);
 	return (count);
 }
