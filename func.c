@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   func.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emuzun <emuzun@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: hialpagu <hialpagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:35:22 by hialpagu          #+#    #+#             */
-/*   Updated: 2024/11/28 19:20:25 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/28 19:40:24 by hialpagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	print_chr(char c)
 int	print_str(char *str)
 {
 	int	count;
-	
+
 	count = 0;
 	if (!str)
 	{
@@ -35,18 +35,18 @@ int	print_str(char *str)
 
 int	print_ptr(unsigned long p)
 {
-	int	count;
-	char *hex;
-	char value[16];
-	int i;
-	
-	i =	0;
+	int		count;
+	char	*hex;
+	char	value[16];
+	int		i;
+
+	i = 0;
 	hex = "0123456789abcdef";
 	count = 0;
 	if (p == 0)
 		return (print_str("(nil)"));
 	count += write (1, "0x", 2);
-	while (p > 0)	
+	while (p > 0)
 	{	
 		value[i] = hex[p % 16];
 		p /= 16;
